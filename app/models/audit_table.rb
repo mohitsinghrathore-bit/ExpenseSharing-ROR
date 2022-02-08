@@ -1,0 +1,2 @@
+class AuditTable < ApplicationRecord
+end
