@@ -1,9 +1,9 @@
 class TransactionController<ApplicationController
   skip_before_action :verify_authenticity_token
-  @@txnService=TransactionService.new
+  #@@txnService=TransactionService.new
   def doTransaction
-    amountDistributed=@@txnService.txnAmount(txn_params)
-    @@txnService.UpdateAudit(amountDistributed,txn_params)
+    amountDistributed=TransactionService.txnAmount(txn_params)
+    TransactionService.UpdateAudit(amountDistributed,txn_params)
   end
 
   private

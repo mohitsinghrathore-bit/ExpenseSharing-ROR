@@ -5,6 +5,10 @@ class GroupController<ApplicationController
     @group=Group.new(group_params)
     @group.save
   end
+  def balanceAtGrouplevel
+    auditTable=AuditService.auditWithGrpId(params[:id])
+    render json: auditTable
+  end
   private
   def group_params
     params.require(:group).permit(:name)
