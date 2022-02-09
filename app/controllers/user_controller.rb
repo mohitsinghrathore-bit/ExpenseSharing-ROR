@@ -9,7 +9,10 @@ class UserController<ApplicationController
     @groupuser=GroupUser.new(user_id:@user.id,group_id:user_params[:group_id][:id])
     @groupuser.save
   end
-
+  def balanceAtUserlevel
+    auditTable=AuditService.auditWithUsrId(params[:id])
+    render json: auditTable
+  end
   private
   def user_params
     userparam, groupparam = params.require([:user, :group_id])
