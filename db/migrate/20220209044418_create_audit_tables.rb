@@ -3,6 +3,7 @@ class CreateAuditTables < ActiveRecord::Migration[7.0]
     create_table :audit_tables do |t|
       t.bigint :idUser1
       t.bigint :idUser2
+      t.bigint :amount
 
       t.timestamps
     end

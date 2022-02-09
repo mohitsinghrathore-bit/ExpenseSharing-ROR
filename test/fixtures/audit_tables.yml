@@ -3,7 +3,9 @@
 one:
   idUser1: 
   idUser2: 
+  amount: 
 
 two:
   idUser1: 
   idUser2: 
+  amount: 
