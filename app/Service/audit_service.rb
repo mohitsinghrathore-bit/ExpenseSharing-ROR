@@ -1,9 +1,9 @@
 class AuditService
   class << self
     def auditWithGrpId(groupId)
-      user = GroupUser.where(group_id: groupId)
-      allUsers = user.pluck(:user_id)
-      auditTable = AuditTable.where(idUser1: allUsers).or(AuditTable.where(idUser2: allUsers))
+      auditTable = AuditTable.where(group_id: groupId)
+      # allUsers = user.pluck(:user_id)
+      # auditTable = AuditTable.where(idUser1: allUsers).or(AuditTable.where(idUser2: allUsers))
       return auditTable
     end
     def auditWithUsrId(userId)
@@ -22,7 +22,7 @@ class AuditService
           audittable[0].amount += amountDistributed
           audittable[0].save
         else
-          @audittable = AuditTable.new(idUser1: groupUser.user_id, idUser2: txn_params[:userId], amount: amountDistributed)
+          @audittable = AuditTable.new(idUser1: groupUser.user_id, idUser2: txn_params[:userId], amount: amountDistributed,group_id:txn_params[:groupId])
           @audittable.save
         end
       }
