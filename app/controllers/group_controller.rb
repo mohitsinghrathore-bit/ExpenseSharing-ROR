@@ -2,16 +2,14 @@ class GroupController<ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    @group=Group.new(group_params)
-    @group.save
+    GroupService.addGroup(group_params)
   end
   def balanceAtGrouplevel
     auditTable=AuditService.auditWithGrpId(params[:id])
     render json: auditTable
   end
   def datewiseSegregation
-    auditTable=AuditService.auditWithGrpId(params[:id])
-    auditTable.group("created_at")
+    auditTable=AuditService.auditTrailDatewise(params)
     render json: auditTable
   end
   private

@@ -27,5 +27,11 @@ class AuditService
         end
       }
     end
+
+    def auditTrailDatewise(params)
+      auditTable=AuditService.auditWithGrpId(params[:id])
+      auditTable.group(:created_at)
+      return auditTable
+    end
   end
 end
