@@ -9,6 +9,11 @@ class GroupController<ApplicationController
     auditTable=AuditService.auditWithGrpId(params[:id])
     render json: auditTable
   end
+  def datewiseSegregation
+    auditTable=AuditService.auditWithGrpId(params[:id])
+    auditTable.group("created_at")
+    render json: auditTable
+  end
   private
   def group_params
     params.require(:group).permit(:name)

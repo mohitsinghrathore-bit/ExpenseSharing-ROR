@@ -3,7 +3,7 @@ class TransactionController<ApplicationController
   #@@txnService=TransactionService.new
   def doTransaction
     amountDistributed=TransactionService.txnAmount(txn_params)
-    TransactionService.UpdateAudit(amountDistributed,txn_params)
+    AuditService.UpdateAudit(amountDistributed,txn_params)
   end
 
   private

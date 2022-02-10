@@ -4,8 +4,10 @@ one:
   idUser1: 
   idUser2: 
   amount: 
+  group: one
 
 two:
   idUser1: 
   idUser2: 
   amount: 
+  group: two
