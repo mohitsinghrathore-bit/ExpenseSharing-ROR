@@ -5,7 +5,7 @@ class GroupController<ApplicationController
     GroupService.addGroup(group_params)
   end
   def balanceAtGrouplevel
-    auditTable=AuditService.auditWithGrpId(params[:id])
+    auditTable= AuditService.auditWithGrpId(params[:id])
     render json: auditTable
   end
   def datewiseSegregation
